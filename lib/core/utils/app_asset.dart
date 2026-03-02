@@ -9,6 +9,11 @@ class AppImages {
   static const iconTime = 'assets/images/icon_time.png';
   static const mostRecentImg = 'assets/images/img_most_recent.png';
   static const frameImg = 'assets/images/img_sur_number_frame.png';
+  static const quran = 'assets/images/quran.png';
+  static const kebba = 'assets/images/kebba.png';
+  static const quranRadio = 'assets/images/quran_radio.png';
+  static const welcome = 'assets/images/welcome.png';
+  static const bearish = 'assets/images/bearish.png';
 }
 
 class AppSvg {
