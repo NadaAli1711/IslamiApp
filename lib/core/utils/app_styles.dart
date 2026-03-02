@@ -22,4 +22,19 @@ class AppStyles {
     fontWeight: .w700,
     fontSize: 14,
   );
+  static const TextStyle gold24Bold = TextStyle(
+    color: AppColors.gold,
+    fontWeight: .w700,
+    fontSize: 24,
+  );
+  static const TextStyle gold20Bold = TextStyle(
+    color: AppColors.gold,
+    fontWeight: .w700,
+    fontSize: 20,
+  );
+  static const TextStyle gold16Bold = TextStyle(
+    color: AppColors.gold,
+    fontWeight: .w700,
+    fontSize: 16,
+  );
 }

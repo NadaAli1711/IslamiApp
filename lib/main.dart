@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/ui/screens/home_screen.dart';
+import 'package:islami_app/ui/screens/on_boarding_page.dart';
 
 void main() {
   runApp(const IslamiApp());
@@ -13,7 +13,7 @@ class IslamiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: OnBoardingPage(),
     );
   }
 }
