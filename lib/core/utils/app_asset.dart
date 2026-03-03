@@ -1,5 +1,9 @@
 class AppImages {
   static const quranBg = 'assets/images/quran_bg.png';
+  static const hadithBg = 'assets/images/hadith_bg.png';
+  static const sebhaBg = 'assets/images/sebha_bg.png';
+  static const radioBg = 'assets/images/radio_bg.png';
+  static const timeBg = 'assets/images/time_bg.png';
   static const headerIslamiImg = 'assets/images/img_header.png';
   static const quranIcon = 'assets/images/quran_icon_text_field.png';
   static const iconHadeth = 'assets/images/icon_hadeth.png';
