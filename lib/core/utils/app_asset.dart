@@ -18,6 +18,7 @@ class AppImages {
   static const quranRadio = 'assets/images/quran_radio.png';
   static const welcome = 'assets/images/welcome.png';
   static const bearish = 'assets/images/bearish.png';
+  static const sebha = 'assets/images/Sebha.png';
 }
 
 class AppSvg {
