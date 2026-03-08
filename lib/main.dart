@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:islami_app/ui/screens/details_screen.dart';
 
+import 'core/utils/app_colors.dart';
+
 void main() {
   runApp(const IslamiApp());
 }
@@ -15,6 +17,10 @@ class IslamiApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: DetailsScreen(),
+      theme: ThemeData(
+        fontFamily: 'Janna LT Bold',
+        scaffoldBackgroundColor: AppColors.transparent,
+      ),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/core/utils/app_colors.dart';
 import 'package:islami_app/ui/tabs/time/time_tab.dart';
 
 import '../../core/utils/app_asset.dart';
@@ -36,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
         Image.asset(bgList[currentIndex]),
         SafeArea(
           child: Scaffold(
-            backgroundColor: AppColors.transparent,
             bottomNavigationBar: BottomBar(
               currentIndex: currentIndex, onTap: (index) =>
                 setState(() {
