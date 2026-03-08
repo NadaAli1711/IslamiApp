@@ -103,8 +103,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
   }) {
     var height = MediaQuery.of(context).size.width;
     double designHeight = 932;
-    var width = MediaQuery.of(context).size.width;
-    double designWidth = 430;
+
     return PageViewModel(
       title: "",
       bodyWidget: Column(
