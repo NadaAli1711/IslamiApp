@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/ui/screens/home_screen.dart';
+import 'package:get/get.dart';
+import 'package:islami_app/ui/screens/details_screen.dart';
 
 void main() {
   runApp(const IslamiApp());
@@ -11,9 +12,9 @@ class IslamiApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-     debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DetailsScreen(),
     );
   }
 }

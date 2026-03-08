@@ -19,6 +19,9 @@ class AppImages {
   static const welcome = 'assets/images/welcome.png';
   static const bearish = 'assets/images/bearish.png';
   static const sebha = 'assets/images/Sebha.png';
+  static const bottomImg = 'assets/images/img_bottom_decoration.png';
+  static const leftCorner = 'assets/images/img_left_corner.png';
+  static const rightCorner = 'assets/images/img_right_corner.png';
 }
 
 class AppSvg {
