@@ -24,7 +24,7 @@ class IslamiApp extends StatelessWidget {
         RouteName.homeScreen: (context) => HomeScreen(),
       },
       theme: ThemeData(
-        fontFamily: 'Janna LT Bold',
+        fontFamily: 'JannaLTBold',
         scaffoldBackgroundColor: AppColors.transparent,
       ),
     );
