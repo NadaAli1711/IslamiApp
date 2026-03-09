@@ -16,7 +16,7 @@ class VerticalViewList extends StatelessWidget {
         itemBuilder: (context, index) =>
             InkWell(onTap: () =>
                 Navigator.of(context).pushNamed(
-                    RouteName.detailsScreen, arguments: index),
+                    RouteName.quranDetailsScreen, arguments: index),
               child: Row(
                 spacing: 24,
                 children: [

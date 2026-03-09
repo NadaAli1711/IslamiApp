@@ -22,6 +22,7 @@ class AppImages {
   static const bottomImg = 'assets/images/img_bottom_decoration.png';
   static const leftCorner = 'assets/images/img_left_corner.png';
   static const rightCorner = 'assets/images/img_right_corner.png';
+  static const hadithCard = 'assets/images/hadith_card.png';
 }
 
 class AppSvg {

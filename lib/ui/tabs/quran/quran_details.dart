@@ -5,16 +5,17 @@ import 'package:islami_app/core/utils/app_colors.dart';
 import 'package:islami_app/core/utils/app_styles.dart';
 import 'package:islami_app/ui/tabs/quran/quran_lists.dart';
 
-import '../../core/utils/size_config.dart';
+import '../../../core/utils/size_config.dart';
+import '../../widgets/golden_back_button.dart';
 
-class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({super.key});
+class QuranDetails extends StatefulWidget {
+  const QuranDetails({super.key});
 
   @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
+  State<QuranDetails> createState() => _DetailsScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
+class _DetailsScreenState extends State<QuranDetails> {
   String suraContent = '';
   List<String> suraVerses = [];
 
@@ -26,10 +27,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-    final index = ModalRoute
-        .of(context)
-        ?.settings
-        .arguments as int;
+    final index = ModalRoute.of(context)?.settings.arguments as int;
     currentIndex = index;
     loadFileData('assets/suras/${index + 1}.txt');
   }
@@ -47,12 +45,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
               child: Row(
                 children: [
-                  IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: Icon(Icons.arrow_back_rounded),
-                    color: AppColors.gold,
-                    style: IconButton.styleFrom(iconSize: 30),
-                  ),
+                  GoldenBackButton(),
                   Expanded(
                     child: Text(
                       QuranLists.englishQuranSurahs[currentIndex],
@@ -71,7 +64,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     activeThumbColor: AppColors.white,
                     inactiveTrackColor: AppColors.white,
                     inactiveThumbColor: AppColors.gold,
-                  )
+                  ),
                 ],
               ),
             ),
@@ -94,45 +87,44 @@ class _DetailsScreenState extends State<DetailsScreen> {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: isSwitched ? SingleChildScrollView(
-                  child: Expanded(
-                    child: Text(
-                      suraContent,
-                      style: AppStyles.gold20Bold,
-                      textAlign: .center,
-                      textDirection: TextDirection.rtl,
-                    ),
-                  ),
-                ) :
-                ListView.builder(
-                  itemBuilder: (context, index) =>
-                      GestureDetector(
-                        onTap: () =>
-                            setState(() {
-                              selectedIndex = index;
-                            }),
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: 10),
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: selectedIndex == index
-                                ? AppColors.gold
-                                : AppColors.transparent,
-                            borderRadius: BorderRadius.circular(15),
-                            border: BoxBorder.all(color: AppColors.gold),
-                          ),
+                child: isSwitched
+                    ? SingleChildScrollView(
+                        child: Expanded(
                           child: Text(
-                            suraVerses[index],
-                            style: selectedIndex == index ? AppStyles
-                                .black20Bold : AppStyles.gold20Bold,
+                            suraContent,
+                            style: AppStyles.gold20Bold,
                             textAlign: .center,
+                            textDirection: TextDirection.rtl,
                           ),
                         ),
+                      )
+                    : ListView.builder(
+                        itemBuilder: (context, index) => GestureDetector(
+                          onTap: () => setState(() {
+                            selectedIndex = index;
+                          }),
+                          child: Container(
+                            margin: EdgeInsets.only(bottom: 10),
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: selectedIndex == index
+                                  ? AppColors.gold
+                                  : AppColors.transparent,
+                              borderRadius: BorderRadius.circular(15),
+                              border: BoxBorder.all(color: AppColors.gold),
+                            ),
+                            child: Text(
+                              suraVerses[index],
+                              style: selectedIndex == index
+                                  ? AppStyles.black20Bold
+                                  : AppStyles.gold20Bold,
+                              textAlign: .center,
+                            ),
+                          ),
+                        ),
+                        itemCount: suraVerses.length,
                       ),
-                  itemCount: suraVerses.length,
-                ),
-
               ),
             ),
             Image.asset(AppImages.bottomImg),

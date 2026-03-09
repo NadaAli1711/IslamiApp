@@ -37,6 +37,11 @@ class AppStyles {
     fontWeight: .w700,
     fontSize: 14,
   );
+  static const TextStyle black16Bold = TextStyle(
+    color: AppColors.black,
+    fontWeight: .w700,
+    fontSize: 16,
+  );
   static const TextStyle gold24Bold = TextStyle(
     color: AppColors.gold,
     fontWeight: .w700,

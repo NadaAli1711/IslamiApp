@@ -1,4 +1,5 @@
 class RouteName {
-  static const String detailsScreen = 'details screen';
+  static const String quranDetailsScreen = 'quran details screen';
+  static const String hadithDetailsScreen = 'hadith details screen';
   static const String homeScreen = 'home screen';
 }

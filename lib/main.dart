@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:islami_app/ui/screens/details_screen.dart';
 import 'package:islami_app/ui/screens/home_screen.dart';
+import 'package:islami_app/ui/tabs/hadith/hadith_details.dart';
+import 'package:islami_app/ui/tabs/quran/quran_details.dart';
 
 import 'core/utils/app_colors.dart';
 import 'core/utils/route_name.dart';
@@ -12,15 +13,14 @@ void main() {
 
 class IslamiApp extends StatelessWidget {
   const IslamiApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: RouteName.homeScreen,
       routes: {
-        RouteName.detailsScreen: (context) => DetailsScreen(),
+        RouteName.quranDetailsScreen: (context) => QuranDetails(),
+        RouteName.hadithDetailsScreen: (context) => HadithDetails(),
         RouteName.homeScreen: (context) => HomeScreen(),
       },
       theme: ThemeData(
