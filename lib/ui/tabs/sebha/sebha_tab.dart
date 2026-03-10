@@ -37,9 +37,6 @@ class _SebhaTabState extends State<SebhaTab> {
               alignment: Alignment.center,
               child: Image.asset(
                 AppImages.sebha,
-                height: 380,
-                width: 380,
-                fit: BoxFit.contain,
               ),
             ),
             GestureDetector(

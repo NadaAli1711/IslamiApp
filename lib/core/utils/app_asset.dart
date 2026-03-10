@@ -23,9 +23,13 @@ class AppImages {
   static const leftCorner = 'assets/images/img_left_corner.png';
   static const rightCorner = 'assets/images/img_right_corner.png';
   static const hadithCard = 'assets/images/hadith_card.png';
+  static const radioSampling = 'assets/images/radio_sampling_bg.png';
+  static const radioMasjid = 'assets/images/radio_masjed_bg.png';
 }
 
 class AppSvg {
   static const islamiHeader = 'assets/images/svg/img_header.svg';
   static const quranIcon = 'assets/images/svg/quran_icon.svg';
+  static const volumeLow = 'assets/images/svg/volume_low.svg';
+  static const volumeHigh = 'assets/images/svg/volume_high.svg';
 }
