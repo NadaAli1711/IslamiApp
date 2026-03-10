@@ -1,0 +1,85 @@
+import 'package:flutter/material.dart';
+import 'package:islami_app/core/utils/app_asset.dart';
+import 'package:islami_app/core/utils/app_styles.dart';
+
+import '../../core/utils/app_colors.dart';
+import '../../core/utils/size_config.dart';
+
+class RadioListView extends StatefulWidget {
+  RadioListView({super.key});
+
+  @override
+  State<RadioListView> createState() => _RadioListViewState();
+}
+
+class _RadioListViewState extends State<RadioListView> {
+  final List<String> sheikhName = [
+    'Ibrahim Al-Akdar',
+    'Akram Alalaqmi',
+    'Majed Al-Enezi',
+    'Malik shaibat Alhamed',
+  ];
+
+  int? selectedIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView.builder(
+        itemBuilder: (context, index) => Container(
+          height: ContextSize.heightPercentage(133),
+          padding: EdgeInsets.only(top: ContextSize.heightPercentage(20)),
+          margin: EdgeInsets.only(top: ContextSize.heightPercentage(15)),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                selectedIndex == index
+                    ? AppImages.radioSampling
+                    : AppImages.radioMasjid,
+              ),
+              alignment: .bottomCenter,
+            ),
+            borderRadius: BorderRadius.circular(20),
+            color: AppColors.gold,
+          ),
+          child: Column(
+            spacing: ContextSize.heightPercentage(5),
+            children: [
+              Text(sheikhName[index], style: AppStyles.black20Bold),
+              Row(
+                mainAxisAlignment: .center,
+                children: [
+                  SizedBox(width: ContextSize.widthPercentage(50)),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                    },
+                    icon: Icon(
+                      selectedIndex == index
+                          ? Icons.pause
+                          : Icons.play_arrow_rounded,
+                      size: ContextSize.widthPercentage(50),
+                      color: AppColors.black,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.volume_up,
+                      size: ContextSize.widthPercentage(30),
+                      color: AppColors.black,
+                    ),
+                  ),
+                  // IconButton(onPressed: (){}, icon: SvgPicture.asset(AppSvg.volumeLow,width: 30,))
+                ],
+              ),
+            ],
+          ),
+        ),
+        itemCount: sheikhName.length,
+      ),
+    );
+  }
+}

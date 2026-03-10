@@ -3,9 +3,17 @@ import 'package:islami_app/core/utils/app_asset.dart';
 
 import '../../../core/utils/app_styles.dart';
 
-class SebhaTab extends StatelessWidget {
-  final int counter = 30;
+class SebhaTab extends StatefulWidget {
+
   const SebhaTab({super.key});
+
+  @override
+  State<SebhaTab> createState() => _SebhaTabState();
+}
+
+class _SebhaTabState extends State<SebhaTab> {
+  int counter = 33;
+  double turns = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +32,38 @@ class SebhaTab extends StatelessWidget {
         Stack(
           alignment: Alignment.center,
           children: [
-            Image.asset(
-              AppImages.sebha,
+            Transform.rotate(
+              angle: turns,
+              alignment: Alignment.center,
+              child: Image.asset(
+                AppImages.sebha,
+              ),
             ),
-            Column(
-              children: [
-                const SizedBox(height: 80,),
-                Text(
-                  'سبحان الله',
-                  style: AppStyles.white36Bold,
-                ),
-                Text(
-                  '$counter',
-                  style: AppStyles.white36Bold,
-                ),
-              ],
+            GestureDetector(
+              onTap: () {
+                turns += 6 / 32;
+                if (counter == 0) {
+                  counter = 33;
+                } else {
+                  counter--;
+                }
+                setState(() {
+
+                });
+              },
+              child: Column(
+                children: [
+                  const SizedBox(height: 80,),
+                  Text(
+                    'سبحان الله',
+                    style: AppStyles.white36Bold,
+                  ),
+                  Text(
+                    '$counter',
+                    style: AppStyles.white36Bold,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
