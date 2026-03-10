@@ -25,6 +25,9 @@ class AppImages {
   static const hadithCard = 'assets/images/hadith_card.png';
   static const radioSampling = 'assets/images/radio_sampling_bg.png';
   static const radioMasjid = 'assets/images/radio_masjed_bg.png';
+  static const prayTimeBg = 'assets/images/pray_time_bg.png';
+  static const morningAzkar = 'assets/images/morning_azkar.png';
+  static const eveningAzkar = 'assets/images/evening_azkar.png';
 }
 
 class AppSvg {
