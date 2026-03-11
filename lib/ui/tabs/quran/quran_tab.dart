@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
+import '../../../core/utils/size_config.dart';
 import 'most_recent.dart';
 import 'vertical_view_list.dart';
 
@@ -13,7 +14,7 @@ class QuranTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: .start,
-      spacing: 20,
+      spacing: ContextSize.heightPercentage(20),
       children: [
         TextField(
           style: AppStyles.white16Bold,
@@ -28,7 +29,8 @@ class QuranTab extends StatelessWidget {
           ),
         ),
         Text('Most Recently', style: AppStyles.white16Bold),
-        SizedBox(height: 150, child: MostRecent()),
+        SizedBox(
+            height: ContextSize.heightPercentage(150), child: MostRecent()),
         Text('Suras List', style: AppStyles.white16Bold),
         VerticalViewList(),
       ],

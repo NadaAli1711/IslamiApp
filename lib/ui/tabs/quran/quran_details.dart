@@ -37,7 +37,7 @@ class _DetailsScreenState extends State<QuranDetails> {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          spacing: 20,
+          spacing: ContextSize.heightPercentage(20),
           children: [
             Padding(
               padding: EdgeInsets.symmetric(
@@ -86,7 +86,8 @@ class _DetailsScreenState extends State<QuranDetails> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: ContextSize.widthPercentage(20),),
                 child: isSwitched
                     ? SingleChildScrollView(
                         child: Expanded(
@@ -104,8 +105,10 @@ class _DetailsScreenState extends State<QuranDetails> {
                             selectedIndex = index;
                           }),
                           child: Container(
-                            margin: EdgeInsets.only(bottom: 10),
-                            padding: EdgeInsets.symmetric(vertical: 15),
+                            margin: EdgeInsets.only(bottom: ContextSize
+                                .heightPercentage(10)),
+                            padding: EdgeInsets.symmetric(vertical: ContextSize
+                                .heightPercentage(15)),
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: selectedIndex == index

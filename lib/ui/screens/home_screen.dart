@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/ui/tabs/time/time_tab.dart';
 
 import '../../core/utils/app_asset.dart';
+import '../../core/utils/size_config.dart';
 import '../tabs/hadith/hadith_tab.dart';
 import '../tabs/quran/quran_tab.dart';
 import '../tabs/radio/radio_tab.dart';
@@ -41,7 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   currentIndex = index;
                 }),),
             body: Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(
+                  horizontal: ContextSize.widthPercentage(20),
+                  vertical: ContextSize.heightPercentage(20)),
               child: Column(
                 children: [
                   Image.asset(

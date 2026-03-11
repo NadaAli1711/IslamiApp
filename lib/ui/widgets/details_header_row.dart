@@ -21,7 +21,7 @@ class DetailsHeaderRow extends StatelessWidget {
           Expanded(
             child: Text(title, style: AppStyles.gold20Bold, textAlign: .center),
           ),
-          SizedBox(width: 30),
+          SizedBox(width: ContextSize.widthPercentage(30)),
         ],
       ),
     );

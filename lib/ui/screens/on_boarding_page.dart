@@ -4,6 +4,7 @@ import 'package:islami_app/core/utils/app_asset.dart';
 import 'package:islami_app/core/utils/app_colors.dart';
 
 import '../../core/utils/app_styles.dart';
+import '../../core/utils/size_config.dart';
 import 'home_screen.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -75,11 +76,13 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       next: const Text('Next', style: AppStyles.gold16Bold),
       done: const Text('Finish', style: AppStyles.gold16Bold),
 
-      controlsMargin: const EdgeInsets.only(bottom: 16),
-      dotsDecorator: const DotsDecorator(
-        size: Size(7, 7),
+      controlsMargin: EdgeInsets.only(bottom: ContextSize.heightPercentage(16)),
+      dotsDecorator: DotsDecorator(
+        size: Size(
+            ContextSize.widthPercentage(7), ContextSize.heightPercentage(7)),
         color: AppColors.grey,
-        activeSize: Size(18, 7),
+        activeSize: Size(
+            ContextSize.widthPercentage(18), ContextSize.heightPercentage(7)),
         activeColor: AppColors.gold,
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(27.0)),
@@ -101,13 +104,11 @@ class OnBoardingPageState extends State<OnBoardingPage> {
     double top = 300,
     double spacing = 50,
   }) {
-    var height = MediaQuery.of(context).size.width;
-    double designHeight = 932;
 
     return PageViewModel(
       title: "",
       bodyWidget: Column(
-        spacing: (spacing / designHeight) * height,
+        spacing: ContextSize.heightPercentage(spacing),
         children: [
           Image.asset(assetName, width: double.infinity),
           Text(firstText, style: AppStyles.gold24Bold),
@@ -115,7 +116,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
         ],
       ),
       decoration: PageDecoration(
-        bodyPadding: EdgeInsets.only(top: (top / designHeight) * height),
+        bodyPadding: EdgeInsets.only(top: ContextSize.heightPercentage(top)),
       ),
     );
   }

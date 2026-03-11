@@ -24,7 +24,7 @@ class _TimeTabState extends State<TimeTab> {
       crossAxisAlignment: .start,
       children: [
         Container(
-          padding: EdgeInsets.only(top: 10),
+          padding: EdgeInsets.only(top: ContextSize.heightPercentage(10)),
           height: ContextSize.heightPercentage(301),
           width: ContextSize.widthPercentage(390),
           decoration: BoxDecoration(
@@ -34,7 +34,7 @@ class _TimeTabState extends State<TimeTab> {
             ),
           ),
           child: Column(
-            spacing: 15,
+            spacing: ContextSize.heightPercentage(15),
 
             children: [
               Row(
@@ -59,10 +59,10 @@ class _TimeTabState extends State<TimeTab> {
               Row(
                 mainAxisAlignment: .center,
                 children: [
-                  SizedBox(width: 100),
+                  SizedBox(width: ContextSize.widthPercentage(100),),
                   Text('Next Pray - ', style: AppStyles.black75Opacity16Bold),
                   Text('02:32', style: AppStyles.black16Bold),
-                  SizedBox(width: 50),
+                  SizedBox(width: ContextSize.widthPercentage(50),),
                   IconButton(
                     onPressed: () {
                       isClicked = !isClicked;
@@ -81,7 +81,7 @@ class _TimeTabState extends State<TimeTab> {
         Text('Azkar', style: AppStyles.white16Bold),
         Expanded(
           child: Row(
-            spacing: 20,
+            spacing: ContextSize.widthPercentage(20),
             children: [
               AzkarCard(
                 text: 'Evening Azkar',

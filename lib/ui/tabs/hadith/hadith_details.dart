@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/utils/app_asset.dart';
 
+import '../../../core/utils/size_config.dart';
 import '../../widgets/details_content.dart';
 import '../../widgets/details_header_row.dart';
 import '../../widgets/details_title_row.dart';
@@ -33,7 +34,7 @@ class _HadithDetailsState extends State<HadithDetails> {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          spacing: 20,
+          spacing: ContextSize.heightPercentage(20),
           children: [
             DetailsHeaderRow(title: englishTitle),
             DetailsTitleRow(title: hadithTitle),
