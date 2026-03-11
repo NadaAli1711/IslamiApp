@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/utils/app_colors.dart';
-import '../../core/utils/app_styles.dart';
+import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/app_styles.dart';
 
 class AzkarCard extends StatelessWidget {
   final String text;
@@ -21,7 +21,7 @@ class AzkarCard extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(imageName),
-            Text(text, style: AppStyles.white20Bold),
+            Text(text, style: AppStyles.pureWhite20Bold),
           ],
         ),
       ),

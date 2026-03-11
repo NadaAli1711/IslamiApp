@@ -7,13 +7,18 @@ class AppStyles {
     fontWeight: .w700,
     fontSize: 16,
   );
-  static const TextStyle white14Bold = TextStyle(
-    color: AppColors.white,
+  static const TextStyle pureWhite16Bold = TextStyle(
+    color: AppColors.pureWhite,
+    fontWeight: .w700,
+    fontSize: 16,
+  );
+  static const TextStyle pureWhite14Bold = TextStyle(
+    color: AppColors.pureWhite,
     fontWeight: .w700,
     fontSize: 14,
   );
-  static const TextStyle white20Bold = TextStyle(
-    color: AppColors.white,
+  static const TextStyle pureWhite20Bold = TextStyle(
+    color: AppColors.pureWhite,
     fontWeight: .w700,
     fontSize: 20,
   );
@@ -21,6 +26,11 @@ class AppStyles {
     color: AppColors.white,
     fontWeight: .w700,
     fontSize: 36,
+  );
+  static const TextStyle pureWhite24Bold = TextStyle(
+    color: AppColors.pureWhite,
+    fontWeight: .w700,
+    fontSize: 24,
   );
   static const TextStyle black24Bold = TextStyle(
     color: AppColors.black,
@@ -59,6 +69,21 @@ class AppStyles {
   );
   static const TextStyle gold16Bold = TextStyle(
     color: AppColors.gold,
+    fontWeight: .w700,
+    fontSize: 16,
+  );
+  static TextStyle black70Opacity20Bold = TextStyle(
+    color: AppColors.blackOpacity70,
+    fontWeight: .w700,
+    fontSize: 20,
+  );
+  static TextStyle black90Opacity20Bold = TextStyle(
+    color: AppColors.blackOpacity90,
+    fontWeight: .w700,
+    fontSize: 20,
+  );
+  static TextStyle black75Opacity16Bold = TextStyle(
+    color: AppColors.blackOpacity75,
     fontWeight: .w700,
     fontSize: 16,
   );

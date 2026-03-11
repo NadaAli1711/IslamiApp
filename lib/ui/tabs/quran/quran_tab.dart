@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
-import '../../widgets/most_recent.dart';
-import '../../widgets/vertical_view_list.dart';
+import 'most_recent.dart';
+import 'vertical_view_list.dart';
 
 class QuranTab extends StatelessWidget {
   const QuranTab({super.key});
