@@ -95,7 +95,6 @@ flutter:
   assets:
     - assets/Hadith/
     - assets/images/
-    - assets/images/sampling_bg.png
     - assets/suras/
   fonts:
     - family: Janna LT Bold

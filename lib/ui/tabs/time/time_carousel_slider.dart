@@ -4,7 +4,15 @@ import 'package:islami_app/core/utils/app_colors.dart';
 import 'package:islami_app/core/utils/app_styles.dart';
 import 'package:islami_app/core/utils/size_config.dart';
 
-class TimeCarouselSlider extends StatelessWidget {
+class TimeCarouselSlider extends StatefulWidget {
+
+  const TimeCarouselSlider({super.key});
+
+  @override
+  State<TimeCarouselSlider> createState() => _TimeCarouselSliderState();
+}
+
+class _TimeCarouselSliderState extends State<TimeCarouselSlider> {
   final List<Map<String, String>> prayerData = [
     {'name': 'Fajr', 'time': '04:42', 'period': 'AM'},
     {'name': 'Dhuhr', 'time': '12:05', 'period': 'PM'},
@@ -12,26 +20,33 @@ class TimeCarouselSlider extends StatelessWidget {
     {'name': 'Maghrib', 'time': '06:04', 'period': 'PM'},
     {'name': 'Isha', 'time': '07:22', 'period': 'PM'},
   ];
-  TimeCarouselSlider({super.key});
+  int selectedIndex = 2;
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: ContextSize.heightPercentage(128),
-        aspectRatio: 16 / 9,
-        viewportFraction: 0.3,
+          height: isSelected ? ContextSize.heightPercentage(147) : ContextSize
+              .heightPercentage(130),
+          viewportFraction: 0.27,
         initialPage: 2,
-        enlargeCenterPage: true,
-        enlargeFactor: 0.25,
         scrollDirection: Axis.horizontal,
         enableInfiniteScroll: false,
+          onPageChanged: (index, _) {
+            setState(() {
+              selectedIndex = index;
+            });
+          }
       ),
       items: prayerData.map((prayer) {
         return Builder(
+
           builder: (BuildContext context) {
+            isSelected = selectedIndex == prayerData.indexOf(prayer);
             return Container(
               width: ContextSize.width,
+              margin: EdgeInsets.symmetric(horizontal: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 gradient: LinearGradient(
@@ -43,9 +58,15 @@ class TimeCarouselSlider extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: .spaceEvenly,
                 children: [
-                  Text(prayer['name']!, style: AppStyles.pureWhite14Bold),
-                  Text(prayer['time']!, style: AppStyles.pureWhite24Bold),
-                  Text(prayer['period']!, style: AppStyles.pureWhite14Bold),
+                  Text(prayer['name']!,
+                      style: isSelected ? AppStyles.pureWhite16Bold : AppStyles
+                          .pureWhite14Bold),
+                  Text(prayer['time']!,
+                      style: isSelected ? AppStyles.pureWhite32Bold : AppStyles
+                          .pureWhite24Bold),
+                  Text(prayer['period']!,
+                      style: isSelected ? AppStyles.pureWhite16Bold : AppStyles
+                          .pureWhite14Bold),
                 ],
               ),
             );
