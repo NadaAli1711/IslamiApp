@@ -18,7 +18,6 @@ class AppImages {
   static const quranRadio = 'assets/images/quran_radio.png';
   static const welcome = 'assets/images/welcome.png';
   static const bearish = 'assets/images/bearish.png';
-  static const sebha = 'assets/images/Sebha.png';
   static const bottomImg = 'assets/images/img_bottom_decoration.png';
   static const leftCorner = 'assets/images/img_left_corner.png';
   static const rightCorner = 'assets/images/img_right_corner.png';
@@ -28,6 +27,8 @@ class AppImages {
   static const prayTimeBg = 'assets/images/pray_time_bg.png';
   static const morningAzkar = 'assets/images/morning_azkar.png';
   static const eveningAzkar = 'assets/images/evening_azkar.png';
+  static const sibhaHead = 'assets/images/sibha_head.png';
+  static const sebhaBody = 'assets/images/sebha_body.png';
 }
 
 class AppSvg {

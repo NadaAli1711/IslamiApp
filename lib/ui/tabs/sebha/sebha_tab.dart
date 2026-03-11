@@ -18,7 +18,6 @@ class _SebhaTabState extends State<SebhaTab> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
@@ -29,6 +28,9 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
 
+        Image.asset(
+          AppImages.sibhaHead,
+        ),
         Stack(
           alignment: Alignment.center,
           children: [
@@ -36,12 +38,12 @@ class _SebhaTabState extends State<SebhaTab> {
               angle: turns,
               alignment: Alignment.center,
               child: Image.asset(
-                AppImages.sebha,
+                AppImages.sebhaBody,
               ),
             ),
             GestureDetector(
               onTap: () {
-                turns += 6 / 32;
+                turns -= 6 / 32;
                 if (counter == 0) {
                   counter = 33;
                 } else {
@@ -52,8 +54,9 @@ class _SebhaTabState extends State<SebhaTab> {
                 });
               },
               child: Column(
+                spacing: 15,
                 children: [
-                  const SizedBox(height: 80,),
+                  const SizedBox(height: 10,),
                   Text(
                     'سبحان الله',
                     style: AppStyles.white36Bold,
