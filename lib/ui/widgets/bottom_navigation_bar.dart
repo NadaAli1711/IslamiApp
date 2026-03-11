@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/utils/app_asset.dart';
 import '../../core/utils/app_colors.dart';
+import '../../core/utils/size_config.dart';
 
 typedef OnTap = void Function(int);
 
@@ -60,7 +61,8 @@ class BottomBar extends StatelessWidget {
     return BottomNavigationBarItem(
       icon: index == currentIndex
           ? Container(
-              padding: EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: ContextSize.heightPercentage(6),
+            horizontal: ContextSize.widthPercentage(20)),
               decoration: BoxDecoration(
                 color: AppColors.blackContainerBg,
                 borderRadius: .circular(66),

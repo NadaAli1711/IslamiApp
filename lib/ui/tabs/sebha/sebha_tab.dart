@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/utils/app_asset.dart';
 
 import '../../../core/utils/app_styles.dart';
+import '../../../core/utils/size_config.dart';
 
 class SebhaTab extends StatefulWidget {
 
@@ -12,7 +13,7 @@ class SebhaTab extends StatefulWidget {
 }
 
 class _SebhaTabState extends State<SebhaTab> {
-  int counter = 33;
+  int counter = 30;
   double turns = 0.0;
 
   @override
@@ -20,7 +21,8 @@ class _SebhaTabState extends State<SebhaTab> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: EdgeInsets.symmetric(
+              vertical: ContextSize.heightPercentage(16)),
           child: Text(
             'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
             style: AppStyles.white36Bold,
@@ -54,9 +56,9 @@ class _SebhaTabState extends State<SebhaTab> {
                 });
               },
               child: Column(
-                spacing: 15,
+                spacing: ContextSize.heightPercentage(15),
                 children: [
-                  const SizedBox(height: 10,),
+                  SizedBox(height: ContextSize.heightPercentage(10)),
                   Text(
                     'سبحان الله',
                     style: AppStyles.white36Bold,

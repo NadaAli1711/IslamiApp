@@ -32,7 +32,6 @@ class TimeCarouselSlider extends StatelessWidget {
           builder: (BuildContext context) {
             return Container(
               width: ContextSize.width,
-              // margin: EdgeInsets.symmetric(horizontal: 5.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 gradient: LinearGradient(

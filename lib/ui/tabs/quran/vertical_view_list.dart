@@ -4,6 +4,7 @@ import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
 import '../../../core/utils/route_name.dart';
+import '../../../core/utils/size_config.dart';
 import 'quran_lists.dart';
 
 class VerticalViewList extends StatelessWidget {
@@ -18,7 +19,7 @@ class VerticalViewList extends StatelessWidget {
             context,
           ).pushNamed(RouteName.quranDetailsScreen, arguments: index),
           child: Row(
-            spacing: 24,
+            spacing: ContextSize.widthPercentage(24),
             children: [
               Stack(
                 alignment: .center,
@@ -30,7 +31,7 @@ class VerticalViewList extends StatelessWidget {
               Expanded(
                 child: Column(
                   crossAxisAlignment: .start,
-                  spacing: 3,
+                  spacing: ContextSize.heightPercentage(5),
                   children: [
                     Text(
                       QuranLists.englishQuranSurahs[index],
@@ -51,7 +52,8 @@ class VerticalViewList extends StatelessWidget {
           ),
         ),
         separatorBuilder: (context, index) => Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(
+              vertical: ContextSize.heightPercentage(10)),
           child: Divider(color: AppColors.white),
         ),
         itemCount: 114,

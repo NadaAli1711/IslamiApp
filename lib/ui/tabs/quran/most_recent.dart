@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
+import '../../../core/utils/size_config.dart';
 
 class MostRecent extends StatelessWidget {
   const MostRecent({super.key});
@@ -12,8 +13,10 @@ class MostRecent extends StatelessWidget {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) => Container(
-        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 17),
-        decoration: BoxDecoration(
+        padding: EdgeInsets.symmetric(
+          vertical: ContextSize.heightPercentage(12),
+          horizontal: ContextSize.widthPercentage(17),
+        ), decoration: BoxDecoration(
           color: AppColors.gold,
           borderRadius: BorderRadius.circular(20),
         ),
@@ -30,7 +33,8 @@ class MostRecent extends StatelessWidget {
           ],
         ),
       ),
-      separatorBuilder: (context, index) => SizedBox(width: 10),
+      separatorBuilder: (context, index) =>
+          SizedBox(width: ContextSize.widthPercentage(10),),
       itemCount: 10,
     );
   }
