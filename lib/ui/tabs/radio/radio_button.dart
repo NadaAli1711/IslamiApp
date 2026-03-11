@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/utils/app_styles.dart';
 
-import '../../core/utils/app_colors.dart';
+import '../../../core/utils/app_colors.dart';
 
 class RadioButton extends StatelessWidget {
   final String text;
