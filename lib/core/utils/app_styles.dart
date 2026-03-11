@@ -7,6 +7,11 @@ class AppStyles {
     fontWeight: .w700,
     fontSize: 16,
   );
+  static const TextStyle white36Bold = TextStyle(
+    color: AppColors.white,
+    fontWeight: .w700,
+    fontSize: 36,
+  );
   static const TextStyle pureWhite16Bold = TextStyle(
     color: AppColors.pureWhite,
     fontWeight: .w700,
@@ -22,15 +27,15 @@ class AppStyles {
     fontWeight: .w700,
     fontSize: 20,
   );
-  static const TextStyle white36Bold = TextStyle(
-    color: AppColors.white,
-    fontWeight: .w700,
-    fontSize: 36,
-  );
   static const TextStyle pureWhite24Bold = TextStyle(
     color: AppColors.pureWhite,
     fontWeight: .w700,
     fontSize: 24,
+  );
+  static const TextStyle pureWhite32Bold = TextStyle(
+    color: AppColors.pureWhite,
+    fontWeight: .w700,
+    fontSize: 32,
   );
   static const TextStyle black24Bold = TextStyle(
     color: AppColors.black,
