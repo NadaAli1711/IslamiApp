@@ -16,7 +16,7 @@ class MostRecent extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           vertical: ContextSize.heightPercentage(12),
           horizontal: ContextSize.widthPercentage(17),
-        )decoration: BoxDecoration(
+        ), decoration: BoxDecoration(
           color: AppColors.gold,
           borderRadius: BorderRadius.circular(20),
         ),
