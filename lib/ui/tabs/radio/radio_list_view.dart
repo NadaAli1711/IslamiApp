@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:islami_app/core/utils/app_asset.dart';
 import 'package:islami_app/core/utils/app_styles.dart';
 
@@ -7,7 +6,7 @@ import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/size_config.dart';
 
 class RadioListView extends StatefulWidget {
-  RadioListView({super.key});
+  const RadioListView({super.key});
 
   @override
   State<RadioListView> createState() => _RadioListViewState();
@@ -22,6 +21,8 @@ class _RadioListViewState extends State<RadioListView> {
   ];
 
   int? selectedIndex;
+  int? muteSelectedIndex;
+  bool isMuted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,11 @@ class _RadioListViewState extends State<RadioListView> {
                   IconButton(
                     onPressed: () {
                       setState(() {
-                        selectedIndex = index;
+                        if (selectedIndex == index) {
+                          selectedIndex = null;
+                        } else {
+                          selectedIndex = index;
+                        }
                       });
                     },
                     icon: Icon(
@@ -65,16 +70,36 @@ class _RadioListViewState extends State<RadioListView> {
                       color: AppColors.black,
                     ),
                   ),
+
+                  // IconButton(
+                  //   onPressed: () {
+                  //     setState(() {
+                  //       isMuted = !isMuted;
+                  //     });
+                  //   },
+                  //   icon: SvgPicture.asset(
+                  //     color: AppColors.black,
+                  //     AppSvg.volumeLow,
+                  //     width: 30,
+                  //   ),
+                  // ),
                   IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.volume_up,
-                      size: ContextSize.widthPercentage(30),
+                    onPressed: () {
+                      setState(() {
+                        isMuted = !isMuted;
+                        muteSelectedIndex = index;
+                      });
+                    },
+                    icon: ImageIcon(
+                      AssetImage(
+                        muteSelectedIndex == index && isMuted
+                            ? AppImages.mutedX
+                            : AppImages.volumeHigh,
+                      ),
                       color: AppColors.black,
+                      size: ContextSize.widthPercentage(30),
                     ),
                   ),
-
-                  // IconButton(onPressed: (){}, icon: SvgPicture.asset(AppSvg.volumeLow,width: 30,))
                 ],
               ),
             ],
