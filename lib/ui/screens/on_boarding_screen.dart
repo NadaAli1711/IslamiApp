@@ -7,14 +7,14 @@ import '../../core/utils/app_styles.dart';
 import '../../core/utils/size_config.dart';
 import 'home_screen.dart';
 
-class OnBoardingPage extends StatefulWidget {
-  const OnBoardingPage({super.key});
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({super.key});
 
   @override
   OnBoardingPageState createState() => OnBoardingPageState();
 }
 
-class OnBoardingPageState extends State<OnBoardingPage> {
+class OnBoardingPageState extends State<OnBoardingScreen> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(BuildContext context) {
@@ -29,7 +29,7 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       key: introKey,
       globalBackgroundColor: AppColors.black,
       allowImplicitScrolling: true,
-      autoScrollDuration: 3000,
+      autoScrollDuration: 2000,
       infiniteAutoScroll: true,
       globalHeader: SafeArea(
         child: Image.asset(AppImages.headerIslamiImg, width: double.infinity),
