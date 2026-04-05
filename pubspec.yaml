@@ -37,8 +37,10 @@ dependencies:
   flutter_native_splash: ^2.4.7
   flutter_svg: ^2.2.3
   introduction_screen: ^4.0.0
-  google_fonts: ^8.0.2
   get: ^4.7.3
+  carousel_slider: ^5.1.2
+  provider: ^6.1.5+1
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_test:
@@ -93,7 +95,13 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
   assets:
+    - assets/Hadith/
     - assets/images/
+    - assets/suras/
+  fonts:
+    - family: Janna LT Bold
+      fonts:
+        - asset: assets/fonts/Janna LT Bold.ttf
 
 
 

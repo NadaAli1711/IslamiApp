@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/core/utils/app_colors.dart';
 import 'package:islami_app/ui/tabs/time/time_tab.dart';
 
 import '../../core/utils/app_asset.dart';
+import '../../core/utils/size_config.dart';
 import '../tabs/hadith/hadith_tab.dart';
 import '../tabs/quran/quran_tab.dart';
 import '../tabs/radio/radio_tab.dart';
@@ -36,14 +36,15 @@ class _HomeScreenState extends State<HomeScreen> {
         Image.asset(bgList[currentIndex]),
         SafeArea(
           child: Scaffold(
-            backgroundColor: AppColors.transparent,
             bottomNavigationBar: BottomBar(
               currentIndex: currentIndex, onTap: (index) =>
                 setState(() {
                   currentIndex = index;
                 }),),
             body: Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(
+                horizontal: ContextSize.width * 0.03,
+              ),
               child: Column(
                 children: [
                   Image.asset(
