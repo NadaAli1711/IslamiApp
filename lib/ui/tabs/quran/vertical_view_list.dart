@@ -51,7 +51,7 @@ class VerticalViewList extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  QuranLists.arabicAuranSuras[suraIndex],
+                  QuranLists.arabicQuranSuras[suraIndex],
                   style: AppStyles.pureWhite20Bold,
                 ),
               ],

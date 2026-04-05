@@ -77,7 +77,7 @@ class _DetailsScreenState extends State<QuranDetails> {
                 children: [
                   Image.asset(AppImages.leftCorner),
                   Text(
-                    QuranLists.arabicAuranSuras[currentIndex],
+                    QuranLists.arabicQuranSuras[currentIndex],
                     style: AppStyles.gold20Bold,
                   ),
                   Image.asset(AppImages.rightCorner),

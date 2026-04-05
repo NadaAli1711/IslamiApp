@@ -60,26 +60,20 @@ class _QuranTabState extends State<QuranTab> {
   }
 
   void search(String text) {
-    List<int> tempList = [];
+    List<int> tempList = List.generate(114, (index) => index);
 
     if (isValidEnglishText(text)) {
-      for (int i = 0; i < 114; i++) {
-        if (QuranLists.englishQuranSurahs[i].toUpperCase().contains(
-          text.toUpperCase(),
-        )) {
-          tempList.add(i);
-        }
-      }
+      filterList = tempList.where((suraIndex) =>
+          QuranLists.englishQuranSurahs[suraIndex].toUpperCase().contains(
+              text.toUpperCase())).toList();
     } else {
-      for (int i = 0; i < 114; i++) {
-        if (QuranLists.arabicAuranSuras[i].contains(text)) {
-          tempList.add(i);
-        }
-      }
+      filterList = tempList.where((suraIndex) =>
+          QuranLists.arabicQuranSuras[suraIndex].toUpperCase().contains(
+              text.toUpperCase())).toList();
     }
 
     setState(() {
-      filterList = tempList;
+
     });
   }
 }
