@@ -9,13 +9,16 @@ import 'most_recent.dart';
 import 'vertical_view_list.dart';
 
 class QuranTab extends StatefulWidget {
-  const QuranTab({super.key});
+
+  QuranTab({super.key});
+
 
   @override
   State<QuranTab> createState() => _QuranTabState();
 }
 
 class _QuranTabState extends State<QuranTab> {
+  List<int> mostRecentList = [];
   List<int> filterList = List.generate(114, (index) => index);
   @override
   Widget build(BuildContext context) {
@@ -36,15 +39,23 @@ class _QuranTabState extends State<QuranTab> {
             hintStyle: AppStyles.white16Bold,
           ),
         ),
-        Text('Most Recently', style: AppStyles.white16Bold),
-        SizedBox(
-          height: ContextSize.heightPercentage(150),
-          child: MostRecent(),
-        ),
+
+        Visibility(visible: mostRecentList.isNotEmpty,
+            child: MostRecent(mostRecentList: mostRecentList,)),
         Text('Suras List', style: AppStyles.white16Bold),
-        VerticalViewList(filterList: filterList),
+        VerticalViewList(filterList: filterList,
+            onSuraTap: (suraIndex) => addMostRecentSura(suraIndex)),
       ],
     );
+  }
+
+  void addMostRecentSura(int suraIndex) {
+    if (mostRecentList.length >= 3) mostRecentList.removeLast();
+    if (mostRecentList.contains(suraIndex)) mostRecentList.remove(suraIndex);
+    mostRecentList.insert(0, suraIndex);
+    setState(() {
+
+    });
   }
 
   OutlineInputBorder buildBorder() {

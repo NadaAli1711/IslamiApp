@@ -9,8 +9,10 @@ import 'quran_lists.dart';
 
 class VerticalViewList extends StatelessWidget {
   final List<int> filterList;
+  final void Function(int) onSuraTap;
 
-  const VerticalViewList({super.key, required this.filterList});
+  const VerticalViewList(
+      {super.key, required this.filterList, required this.onSuraTap});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,12 @@ class VerticalViewList extends StatelessWidget {
           int suraIndex = filterList[index];
           return InkWell(
 
-            onTap: () =>
+            onTap: () {
+              onSuraTap(suraIndex);
                 Navigator.of(
                   context,
-                ).pushNamed(RouteName.quranDetailsScreen, arguments: suraIndex),
+                ).pushNamed(RouteName.quranDetailsScreen, arguments: suraIndex);
+            },
             child: Row(
               spacing: ContextSize.widthPercentage(24),
               children: [
