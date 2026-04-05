@@ -19,16 +19,15 @@ class MostRecent extends StatelessWidget {
     var mostRecentProvider = Provider.of<MostRecentProvider>(context);
     return Column(
       crossAxisAlignment: .start,
-      spacing: ContextSize.heightPercentage(20),
+      spacing: ContextSize.height * 0.01,
       children: [
         Text('Most Recently', style: AppStyles.white16Bold),
         SizedBox(
-          height: ContextSize.heightPercentage(150),
+          height: ContextSize.height * 0.18,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               int currentIndex = mostRecentProvider.mostRecentList[index];
-
               return InkWell(
                 onTap: () =>
                     Navigator.of(
@@ -37,8 +36,8 @@ class MostRecent extends StatelessWidget {
                         RouteName.quranDetailsScreen, arguments: currentIndex),
                 child: Container(
                   padding: EdgeInsets.symmetric(
-                    vertical: ContextSize.heightPercentage(12),
-                    horizontal: ContextSize.widthPercentage(17),
+                    vertical: ContextSize.height * 0.02,
+                    horizontal: ContextSize.width * 0.06,
                   ),
                   decoration: BoxDecoration(
                     color: AppColors.gold,
@@ -47,6 +46,8 @@ class MostRecent extends StatelessWidget {
                   child: Row(
                     children: [
                       Column(
+                        mainAxisAlignment: .spaceEvenly,
+                        crossAxisAlignment: .start,
                         children: [
                           Text(QuranLists.englishQuranSurahs[currentIndex],
                               style: AppStyles.black24Bold),
@@ -63,7 +64,7 @@ class MostRecent extends StatelessWidget {
               );
             },
             separatorBuilder: (context, index) =>
-                SizedBox(width: ContextSize.widthPercentage(10)),
+                SizedBox(width: ContextSize.width * 0.03,),
             itemCount: mostRecentProvider.mostRecentList.length,
           ),
         ),

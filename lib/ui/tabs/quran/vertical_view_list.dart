@@ -32,7 +32,7 @@ class VerticalViewList extends StatelessWidget {
                 ).pushNamed(RouteName.quranDetailsScreen, arguments: suraIndex);
             },
             child: Row(
-              spacing: ContextSize.widthPercentage(24),
+              spacing: ContextSize.width * 0.06,
               children: [
                 Stack(
                   alignment: .center,
@@ -44,7 +44,7 @@ class VerticalViewList extends StatelessWidget {
                 Expanded(
                   child: Column(
                     crossAxisAlignment: .start,
-                    spacing: ContextSize.heightPercentage(5),
+                    spacing: ContextSize.height * 0.01,
                     children: [
                       Text(
                         QuranLists.englishQuranSurahs[suraIndex],
@@ -67,8 +67,10 @@ class VerticalViewList extends StatelessWidget {
         },
         separatorBuilder: (context, index) => Padding(
           padding: EdgeInsets.symmetric(
-              vertical: ContextSize.heightPercentage(10)),
-          child: Divider(color: AppColors.white),
+            vertical: ContextSize.height * 0.015,),
+          child: Divider(color: AppColors.white,
+            endIndent: ContextSize.width * 0.1,
+            indent: ContextSize.width * 0.1,),
         ),
         itemCount: filterProvider.filterList.length,
       ),

@@ -22,7 +22,7 @@ class DetailsContent extends StatelessWidget {
       child: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: ContextSize.widthPercentage(10),
+            horizontal: ContextSize.width * 0.02,
           ),
           child: Text(
             content,

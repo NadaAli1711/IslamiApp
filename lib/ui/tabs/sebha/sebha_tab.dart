@@ -22,7 +22,7 @@ class _SebhaTabState extends State<SebhaTab> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
-              vertical: ContextSize.heightPercentage(16)),
+            vertical: ContextSize.height * 0.02,),
           child: Text(
             'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
             style: AppStyles.white36Bold,
@@ -45,7 +45,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ),
             GestureDetector(
               onTap: () {
-                turns -= 6 / 32;
+                turns -= 15;
                 if (counter == 0) {
                   counter = 33;
                 } else {
@@ -56,9 +56,9 @@ class _SebhaTabState extends State<SebhaTab> {
                 });
               },
               child: Column(
-                spacing: ContextSize.heightPercentage(15),
+                spacing: ContextSize.height * 0.02,
                 children: [
-                  SizedBox(height: ContextSize.heightPercentage(10)),
+                  SizedBox(height: ContextSize.height * 0.02,),
                   Text(
                     'سبحان الله',
                     style: AppStyles.white36Bold,

@@ -29,9 +29,9 @@ class _RadioListViewState extends State<RadioListView> {
     return Expanded(
       child: ListView.builder(
         itemBuilder: (context, index) => Container(
-          height: ContextSize.heightPercentage(133),
-          padding: EdgeInsets.only(top: ContextSize.heightPercentage(20)),
-          margin: EdgeInsets.only(top: ContextSize.heightPercentage(15)),
+          height: ContextSize.height * 0.15,
+          padding: EdgeInsets.only(top: ContextSize.height * 0.02,),
+          margin: EdgeInsets.only(top: ContextSize.height * 0.02,),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
@@ -45,13 +45,13 @@ class _RadioListViewState extends State<RadioListView> {
             color: AppColors.gold,
           ),
           child: Column(
-            spacing: ContextSize.heightPercentage(5),
+            spacing: ContextSize.height * 0.02,
             children: [
               Text(sheikhName[index], style: AppStyles.black20Bold),
               Row(
                 mainAxisAlignment: .center,
                 children: [
-                  SizedBox(width: ContextSize.widthPercentage(50)),
+                  SizedBox(width: ContextSize.width * 0.06,),
                   IconButton(
                     onPressed: () {
                       setState(() {
@@ -66,23 +66,10 @@ class _RadioListViewState extends State<RadioListView> {
                       selectedIndex == index
                           ? Icons.pause
                           : Icons.play_arrow_rounded,
-                      size: ContextSize.widthPercentage(50),
+                      size: ContextSize.width * 0.13,
                       color: AppColors.black,
                     ),
                   ),
-
-                  // IconButton(
-                  //   onPressed: () {
-                  //     setState(() {
-                  //       isMuted = !isMuted;
-                  //     });
-                  //   },
-                  //   icon: SvgPicture.asset(
-                  //     color: AppColors.black,
-                  //     AppSvg.volumeLow,
-                  //     width: 30,
-                  //   ),
-                  // ),
                   IconButton(
                     onPressed: () {
                       setState(() {
@@ -97,7 +84,7 @@ class _RadioListViewState extends State<RadioListView> {
                             : AppImages.volumeHigh,
                       ),
                       color: AppColors.black,
-                      size: ContextSize.widthPercentage(30),
+                      size: ContextSize.width * 0.13,
                     ),
                   ),
                 ],

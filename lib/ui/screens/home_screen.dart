@@ -43,8 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),),
             body: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: ContextSize.widthPercentage(20),
-                  vertical: ContextSize.heightPercentage(20)),
+                horizontal: ContextSize.width * 0.03,
+              ),
               child: Column(
                 children: [
                   Image.asset(

@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import 'core/providers/filter_provider.dart';
 import 'core/providers/most_recent_provider.dart';
+import 'core/providers/sura_details_provider.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/route_name.dart';
 
@@ -16,6 +17,7 @@ void main() async {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => MostRecentProvider()),
     ChangeNotifierProvider(create: (context) => FilterProvider()),
+    ChangeNotifierProvider(create: (context) => SuraDetailsProvider()),
   ],
       child: IslamiApp()));
 }
@@ -26,7 +28,7 @@ class IslamiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteName.homeScreen,
+      initialRoute: RouteName.onBoardingScreen,
       routes: {
         RouteName.quranDetailsScreen: (context) => QuranDetails(),
         RouteName.hadithDetailsScreen: (context) => HadithDetails(),

@@ -34,7 +34,7 @@ class _HadithDetailsState extends State<HadithDetails> {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          spacing: ContextSize.heightPercentage(20),
+          spacing: ContextSize.height * 0.02,
           children: [
             DetailsHeaderRow(title: englishTitle),
             DetailsTitleRow(title: hadithTitle),
