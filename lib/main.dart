@@ -6,13 +6,18 @@ import 'package:islami_app/ui/tabs/hadith/hadith_details.dart';
 import 'package:islami_app/ui/tabs/quran/quran_details.dart';
 import 'package:provider/provider.dart';
 
+import 'core/providers/filter_provider.dart';
 import 'core/providers/most_recent_provider.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/route_name.dart';
 
-void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => MostRecentProvider(), child: IslamiApp()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => MostRecentProvider()),
+    ChangeNotifierProvider(create: (context) => FilterProvider()),
+  ],
+      child: IslamiApp()));
 }
 
 class IslamiApp extends StatelessWidget {

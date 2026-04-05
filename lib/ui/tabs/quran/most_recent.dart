@@ -6,6 +6,7 @@ import '../../../core/providers/most_recent_provider.dart';
 import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
+import '../../../core/utils/route_name.dart';
 import '../../../core/utils/size_config.dart';
 
 class MostRecent extends StatelessWidget {
@@ -27,29 +28,37 @@ class MostRecent extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               int currentIndex = mostRecentProvider.mostRecentList[index];
-              return Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: ContextSize.heightPercentage(12),
-                  horizontal: ContextSize.widthPercentage(17),
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.gold,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Text(QuranLists.englishQuranSurahs[currentIndex],
-                            style: AppStyles.black24Bold),
-                        Text(QuranLists.arabicQuranSuras[currentIndex],
-                            style: AppStyles.black24Bold),
-                        Text('${QuranLists.AyaNumber[currentIndex]} Verses  ',
-                            style: AppStyles.black14Bold),
-                      ],
-                    ),
-                    Image.asset(AppImages.mostRecentImg),
-                  ],
+
+              return InkWell(
+                onTap: () =>
+                    Navigator.of(
+                      context,
+                    ).pushNamed(
+                        RouteName.quranDetailsScreen, arguments: currentIndex),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: ContextSize.heightPercentage(12),
+                    horizontal: ContextSize.widthPercentage(17),
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.gold,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text(QuranLists.englishQuranSurahs[currentIndex],
+                              style: AppStyles.black24Bold),
+                          Text(QuranLists.arabicQuranSuras[currentIndex],
+                              style: AppStyles.black24Bold),
+                          Text('${QuranLists.AyaNumber[currentIndex]} Verses  ',
+                              style: AppStyles.black14Bold),
+                        ],
+                      ),
+                      Image.asset(AppImages.mostRecentImg),
+                    ],
+                  ),
                 ),
               );
             },

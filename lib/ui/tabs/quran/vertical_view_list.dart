@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/providers/filter_provider.dart';
 import '../../../core/providers/most_recent_provider.dart';
 import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
@@ -10,16 +11,16 @@ import '../../../core/utils/size_config.dart';
 import 'quran_lists.dart';
 
 class VerticalViewList extends StatelessWidget {
-  final List<int> filterList;
 
-  const VerticalViewList({super.key, required this.filterList});
+  const VerticalViewList({super.key,});
 
   @override
   Widget build(BuildContext context) {
+    var filterProvider = Provider.of<FilterProvider>(context);
     return Expanded(
       child: ListView.separated(
         itemBuilder: (context, index) {
-          int suraIndex = filterList[index];
+          int suraIndex = filterProvider.filterList[index];
           return InkWell(
 
             onTap: () {
@@ -69,7 +70,7 @@ class VerticalViewList extends StatelessWidget {
               vertical: ContextSize.heightPercentage(10)),
           child: Divider(color: AppColors.white),
         ),
-        itemCount: filterList.length,
+        itemCount: filterProvider.filterList.length,
       ),
     );
   }
