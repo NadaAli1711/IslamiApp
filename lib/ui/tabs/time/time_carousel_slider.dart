@@ -27,8 +27,8 @@ class _TimeCarouselSliderState extends State<TimeCarouselSlider> {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-          height: isSelected ? ContextSize.heightPercentage(147) : ContextSize
-              .heightPercentage(130),
+          height: isSelected ? ContextSize.height * 0.1 : ContextSize.height *
+              0.14,
           viewportFraction: 0.27,
         initialPage: 2,
         scrollDirection: Axis.horizontal,
@@ -46,7 +46,8 @@ class _TimeCarouselSliderState extends State<TimeCarouselSlider> {
             isSelected = selectedIndex == prayerData.indexOf(prayer);
             return Container(
               width: ContextSize.width,
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: EdgeInsets.symmetric(
+                  horizontal: ContextSize.width * 0.01),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 gradient: LinearGradient(

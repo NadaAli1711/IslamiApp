@@ -61,8 +61,8 @@ class BottomBar extends StatelessWidget {
     return BottomNavigationBarItem(
       icon: index == currentIndex
           ? Container(
-        padding: EdgeInsets.symmetric(vertical: ContextSize.heightPercentage(6),
-            horizontal: ContextSize.widthPercentage(20)),
+        padding: EdgeInsets.symmetric(vertical: ContextSize.height * 0.007,
+            horizontal: ContextSize.width * 0.04),
               decoration: BoxDecoration(
                 color: AppColors.blackContainerBg,
                 borderRadius: .circular(66),

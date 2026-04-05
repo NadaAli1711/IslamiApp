@@ -52,8 +52,9 @@ class _HadithTabState extends State<HadithTab> {
                     ),
                     child: Container(
                       padding: EdgeInsets.only(
-                          top: ContextSize.heightPercentage(50),
-                          bottom: ContextSize.heightPercentage(80)),
+                        top: ContextSize.height * 0.075,
+                        bottom: ContextSize.height * 0.08,
+                      ),
                       width: ContextSize.width,
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -61,13 +62,12 @@ class _HadithTabState extends State<HadithTab> {
                         ),
                       ),
                       child: Column(
-                        spacing: ContextSize.heightPercentage(10),
                         children: [
                           Expanded(
-                            flex: 1,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                horizontal: ContextSize.widthPercentage(20),),
+                                horizontal: ContextSize.width * 0.06,
+                              ),
                               child: Text(
                                 hadithTitle,
                                 style: AppStyles.black24Bold,
@@ -88,7 +88,7 @@ class _HadithTabState extends State<HadithTab> {
               );
             }).toList(),
             options: CarouselOptions(
-              height: ContextSize.heightPercentage(618),
+              height: ContextSize.height * 0.8,
               aspectRatio: 16 / 9,
               viewportFraction: 0.7,
               initialPage: 0,

@@ -13,7 +13,7 @@ class DetailsTitleRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: ContextSize.widthPercentage(10),
+        horizontal: ContextSize.width * 0.03,
       ),
       child: Row(
         mainAxisAlignment: .spaceBetween,

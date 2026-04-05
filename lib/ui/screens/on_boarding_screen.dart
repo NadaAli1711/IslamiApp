@@ -7,14 +7,14 @@ import '../../core/utils/app_styles.dart';
 import '../../core/utils/size_config.dart';
 import 'home_screen.dart';
 
-class OnBoardingPage extends StatefulWidget {
-  const OnBoardingPage({super.key});
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({super.key});
 
   @override
   OnBoardingPageState createState() => OnBoardingPageState();
 }
 
-class OnBoardingPageState extends State<OnBoardingPage> {
+class OnBoardingPageState extends State<OnBoardingScreen> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(BuildContext context) {
@@ -28,29 +28,30 @@ class OnBoardingPageState extends State<OnBoardingPage> {
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: AppColors.black,
-      allowImplicitScrolling: true,
-      autoScrollDuration: 3000,
-      infiniteAutoScroll: true,
+      // allowImplicitScrolling: true,
+      // autoScrollDuration: 2000,
+      // infiniteAutoScroll: true,
       globalHeader: SafeArea(
         child: Image.asset(AppImages.headerIslamiImg, width: double.infinity),
       ),
 
       pages: [
         buildPageViewModel(
+            firstText: "Welcome To Islmi App",
+            secondText: "",
+            assetName: AppImages.welcome,
+            isFirst: true
+        ),
+
+        buildPageViewModel(
           firstText: "Welcome To Islami",
           secondText: "We Are Very Excited To Have You In Our Community",
-          assetName: AppImages.welcome,
+          assetName: AppImages.kebba,
         ),
         buildPageViewModel(
           firstText: "Reading the Quran",
           secondText: "Read, and your Lord is the Most Generous",
           assetName: AppImages.quran,
-        ),
-        buildPageViewModel(
-          firstText: "Welcome To Islami",
-          secondText: "We Are Very Excited To Have You In Our Community",
-          assetName: AppImages.kebba,
-          spacing: 40,
         ),
         buildPageViewModel(
           firstText: "Bearish",
@@ -70,19 +71,19 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       showBackButton: true,
       skipOrBackFlex: 0,
       nextFlex: 0,
-      animationDuration: 1500,
+      animationDuration: 1000,
       curve: Curves.easeInOut,
       back: const Text('Back', style: AppStyles.gold16Bold),
       next: const Text('Next', style: AppStyles.gold16Bold),
       done: const Text('Finish', style: AppStyles.gold16Bold),
 
-      controlsMargin: EdgeInsets.only(bottom: ContextSize.heightPercentage(16)),
+      controlsMargin: EdgeInsets.only(bottom: ContextSize.height * 0.01,),
       dotsDecorator: DotsDecorator(
         size: Size(
-            ContextSize.widthPercentage(7), ContextSize.heightPercentage(7)),
+          ContextSize.width * 0.02, ContextSize.height * 0.01,),
         color: AppColors.grey,
         activeSize: Size(
-            ContextSize.widthPercentage(18), ContextSize.heightPercentage(7)),
+          ContextSize.width * 0.05, ContextSize.height * 0.01,),
         activeColor: AppColors.gold,
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(27.0)),
@@ -101,22 +102,23 @@ class OnBoardingPageState extends State<OnBoardingPage> {
     required String assetName,
     required String firstText,
     String secondText = "",
-    double top = 300,
-    double spacing = 50,
+    bool isFirst = false
   }) {
 
     return PageViewModel(
       title: "",
       bodyWidget: Column(
-        spacing: ContextSize.heightPercentage(spacing),
+        spacing: ContextSize.height * 0.02,
         children: [
+          if(isFirst)SizedBox(height: ContextSize.height * 0.04,),
           Image.asset(assetName, width: double.infinity),
+          if(isFirst)SizedBox(height: ContextSize.height * 0.04,),
           Text(firstText, style: AppStyles.gold24Bold),
           Text(secondText, style: AppStyles.gold20Bold, textAlign: .center),
         ],
       ),
       decoration: PageDecoration(
-        bodyPadding: EdgeInsets.only(top: ContextSize.heightPercentage(top)),
+        bodyPadding: EdgeInsets.only(top: ContextSize.height * 0.18,),
       ),
     );
   }
