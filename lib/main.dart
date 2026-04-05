@@ -18,7 +18,7 @@ class IslamiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteName.onBoardingScreen,
+      initialRoute: RouteName.homeScreen,
       routes: {
         RouteName.quranDetailsScreen: (context) => QuranDetails(),
         RouteName.hadithDetailsScreen: (context) => HadithDetails(),

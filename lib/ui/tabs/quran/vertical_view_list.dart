@@ -8,55 +8,62 @@ import '../../../core/utils/size_config.dart';
 import 'quran_lists.dart';
 
 class VerticalViewList extends StatelessWidget {
-  const VerticalViewList({super.key});
+  final List<int> filterList;
+
+  const VerticalViewList({super.key, required this.filterList});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
-        itemBuilder: (context, index) => InkWell(
-          onTap: () => Navigator.of(
-            context,
-          ).pushNamed(RouteName.quranDetailsScreen, arguments: index),
-          child: Row(
-            spacing: ContextSize.widthPercentage(24),
-            children: [
-              Stack(
-                alignment: .center,
-                children: [
-                  Image.asset(AppImages.frameImg),
-                  Text('${index + 1}', style: AppStyles.pureWhite20Bold),
-                ],
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: .start,
-                  spacing: ContextSize.heightPercentage(5),
+        itemBuilder: (context, index) {
+          int suraIndex = filterList[index];
+          return InkWell(
+
+            onTap: () =>
+                Navigator.of(
+                  context,
+                ).pushNamed(RouteName.quranDetailsScreen, arguments: suraIndex),
+            child: Row(
+              spacing: ContextSize.widthPercentage(24),
+              children: [
+                Stack(
+                  alignment: .center,
                   children: [
-                    Text(
-                      QuranLists.englishQuranSurahs[index],
-                      style: AppStyles.pureWhite20Bold,
-                    ),
-                    Text(
-                      '${QuranLists.AyaNumber[index]} Verses',
-                      style: AppStyles.pureWhite14Bold,
-                    ),
+                    Image.asset(AppImages.frameImg),
+                    Text('${index + 1}', style: AppStyles.pureWhite20Bold),
                   ],
                 ),
-              ),
-              Text(
-                QuranLists.arabicAuranSuras[index],
-                style: AppStyles.pureWhite20Bold,
-              ),
-            ],
-          ),
-        ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: .start,
+                    spacing: ContextSize.heightPercentage(5),
+                    children: [
+                      Text(
+                        QuranLists.englishQuranSurahs[suraIndex],
+                        style: AppStyles.pureWhite20Bold,
+                      ),
+                      Text(
+                        '${QuranLists.AyaNumber[suraIndex]} Verses',
+                        style: AppStyles.pureWhite14Bold,
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  QuranLists.arabicAuranSuras[suraIndex],
+                  style: AppStyles.pureWhite20Bold,
+                ),
+              ],
+            ),
+          );
+        },
         separatorBuilder: (context, index) => Padding(
           padding: EdgeInsets.symmetric(
               vertical: ContextSize.heightPercentage(10)),
           child: Divider(color: AppColors.white),
         ),
-        itemCount: 114,
+        itemCount: filterList.length,
       ),
     );
   }
