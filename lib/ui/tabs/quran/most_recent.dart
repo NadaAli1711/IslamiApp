@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/ui/tabs/quran/quran_lists.dart';
+import 'package:provider/provider.dart';
 
+import '../../../core/providers/most_recent_provider.dart';
 import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
 import '../../../core/utils/size_config.dart';
 
 class MostRecent extends StatelessWidget {
-  final List<int> mostRecentList;
 
-  const MostRecent({super.key, required this.mostRecentList});
+
+  const MostRecent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var mostRecentProvider = Provider.of<MostRecentProvider>(context);
     return Column(
       crossAxisAlignment: .start,
       spacing: ContextSize.heightPercentage(20),
@@ -23,7 +26,7 @@ class MostRecent extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              int currentIndex = mostRecentList[index];
+              int currentIndex = mostRecentProvider.mostRecentList[index];
               return Container(
                 padding: EdgeInsets.symmetric(
                   vertical: ContextSize.heightPercentage(12),
@@ -52,7 +55,7 @@ class MostRecent extends StatelessWidget {
             },
             separatorBuilder: (context, index) =>
                 SizedBox(width: ContextSize.widthPercentage(10)),
-            itemCount: mostRecentList.length,
+            itemCount: mostRecentProvider.mostRecentList.length,
           ),
         ),
       ],

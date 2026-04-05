@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../core/providers/most_recent_provider.dart';
 import '../../../core/utils/app_asset.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
@@ -9,10 +11,8 @@ import 'quran_lists.dart';
 
 class VerticalViewList extends StatelessWidget {
   final List<int> filterList;
-  final void Function(int) onSuraTap;
 
-  const VerticalViewList(
-      {super.key, required this.filterList, required this.onSuraTap});
+  const VerticalViewList({super.key, required this.filterList});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,9 @@ class VerticalViewList extends StatelessWidget {
           return InkWell(
 
             onTap: () {
-              onSuraTap(suraIndex);
+              Provider
+                  .of<MostRecentProvider>(context, listen: false)
+                  .addMostRecentSura(suraIndex);
                 Navigator.of(
                   context,
                 ).pushNamed(RouteName.quranDetailsScreen, arguments: suraIndex);
