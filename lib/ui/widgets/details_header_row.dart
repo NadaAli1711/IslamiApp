@@ -13,7 +13,9 @@ class DetailsHeaderRow extends StatelessWidget {
     super.key,
     required this.title,
     this.hasSwitch = false,
-  })@override
+  });
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
