@@ -36,14 +36,16 @@ class _HomeScreenState extends State<HomeScreen> {
         Image.asset(bgList[currentIndex]),
         SafeArea(
           child: Scaffold(
+            resizeToAvoidBottomInset: false,
             bottomNavigationBar: BottomBar(
               currentIndex: currentIndex, onTap: (index) =>
                 setState(() {
                   currentIndex = index;
                 }),),
             body: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: ContextSize.width * 0.03,
+              padding: EdgeInsets.only(
+                left: ContextSize.width * 0.03,
+                right: ContextSize.width * 0.03,
               ),
               child: Column(
                 children: [

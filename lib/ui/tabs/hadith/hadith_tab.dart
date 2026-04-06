@@ -2,12 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/core/utils/app_asset.dart';
-import 'package:islami_app/core/utils/app_colors.dart';
 import 'package:islami_app/core/utils/app_styles.dart';
 import 'package:islami_app/core/utils/route_name.dart';
 
 import '../../../core/utils/size_config.dart';
 import '../../widgets/details_content.dart';
+import '../../widgets/golden_circular_progress_indicator.dart';
 
 class HadithTab extends StatefulWidget {
   const HadithTab({super.key});
@@ -31,7 +31,7 @@ class _HadithTabState extends State<HadithTab> {
   @override
   Widget build(BuildContext context) {
     return (allHadithList.isEmpty)
-        ? Center(child: CircularProgressIndicator(color: AppColors.gold))
+        ? GoldenCircularProgressIndicator()
         : CarouselSlider(
             items: hadithIndexList.map((i) {
               int firstNewLine = allHadithList[i].indexOf('\n');

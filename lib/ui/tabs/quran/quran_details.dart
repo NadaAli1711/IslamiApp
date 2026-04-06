@@ -9,6 +9,7 @@ import '../../../core/utils/size_config.dart';
 import '../../widgets/details_content.dart';
 import '../../widgets/details_header_row.dart';
 import '../../widgets/details_title_row.dart';
+import '../../widgets/golden_circular_progress_indicator.dart';
 
 class QuranDetails extends StatefulWidget {
   const QuranDetails({super.key});
@@ -18,19 +19,23 @@ class QuranDetails extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<QuranDetails> {
-  int currentIndex = 0;
+  int? currentIndex;
 
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     WidgetsFlutterBinding.ensureInitialized();
+
     final index = ModalRoute.of(context)?.settings.arguments as int;
+
+    if (currentIndex != index) {
+      Provider.of<SuraDetailsProvider>(
+        context,
+        listen: false,
+      ).loadFileData(index);
+    }
     currentIndex = index;
-    Provider.of<SuraDetailsProvider>(
-      context,
-      listen: false,
-    ).loadFileData(index);
   }
 
   @override
@@ -39,20 +44,23 @@ class _DetailsScreenState extends State<QuranDetails> {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          spacing: ContextSize.height * 0.03,
+          spacing: ContextSize.height * 0.02,
           children: [
             DetailsHeaderRow(
-              title: QuranLists.englishQuranSurahs[currentIndex],
+              title: QuranLists.englishQuranSurahs[currentIndex ?? 0],
               hasSwitch: true,
             ),
-            DetailsTitleRow(title: QuranLists.arabicQuranSuras[currentIndex]),
+            DetailsTitleRow(
+                title: QuranLists.arabicQuranSuras[currentIndex ?? 0]),
 
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: ContextSize.width * 0.03,
                 ),
-                child: suraDetailsProvider.isSwitched
+                child: suraDetailsProvider.suraVerses.isEmpty
+                    ? GoldenCircularProgressIndicator()
+                    : suraDetailsProvider.isSwitched
                     ? DetailsContent(content: suraDetailsProvider.suraContent)
                     : QuranDetailsListView(),
               ),
